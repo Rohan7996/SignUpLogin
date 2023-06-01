@@ -28,16 +28,14 @@ public class AuthService {
     }
 
     private String generateToken(Integer employeeId) {
-        String secretKey = "1Cw#7^a9$4vKp@3r";
-        byte[] keyBytes = secretKey.getBytes(StandardCharsets.UTF_8);
-        Key key = Keys.hmacShaKeyFor(keyBytes);
+        Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
         Date now = new Date();
         Date expiration = new Date(now.getTime() + (1000 * 120));
         String token = Jwts.builder()
                 .setSubject(String.valueOf(employeeId))
                 .setIssuedAt(now)
                 .setExpiration(expiration)
-                .signWith(key, SignatureAlgorithm.HS256)
+                .signWith(key)
                 .compact();
         return token;
     }
