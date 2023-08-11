@@ -8,7 +8,7 @@ This project provides a backend implementation for a login and signup REST API w
 #### Signup
 
 ```http
-  POST api/v1/employee/signup
+  POST api/v1/employee/hello
 ```
 
 | Parameter | Type     | Description                |
