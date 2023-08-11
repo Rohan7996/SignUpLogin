@@ -17,10 +17,10 @@ public class EmployeeController {
     @Autowired
     private AuthService authService;
 
-    @PostMapping(path = "/signup")
+    @PostMapping(path = "/hello")
     public String saveEmployee(@RequestBody EmployeeDTO employeeDTO) {
         String id = employeeService.addEmployee(employeeDTO);
-        return id;
+        return "Hello from GreenStitch";
     }
 
     @PostMapping(path = "/login")
